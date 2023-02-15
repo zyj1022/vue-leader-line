@@ -3359,12 +3359,12 @@
    * @param {Object} [options] - Initial options.
    */
   function LeaderLine(start, end, options) {
-    var xy = 15; // todo 默认相对位置
+    // todo 默认相对位置
     var props = {
       // Initialize properties as array.
       fixed: {
-        x: options.left || xy,
-        y: options.top || xy,
+        x: options.left || options.left == 0 ? options.left : 0,
+        y: options.top || options.top == 0 ? options.top : 0,
         id: options.fixed || null,
       },
       options: {
@@ -5227,9 +5227,7 @@
   return LeaderLine;
 })();
 
-export default {
-  setLine: function (start, end, config = {}) {
-    return new LeaderLine(start, end, config);
-  },
-  proto: LeaderLine,
-};
+export function setLine(start, end, config = {}) {
+  return new LeaderLine(start, end, config);
+}
+export default LeaderLine;
