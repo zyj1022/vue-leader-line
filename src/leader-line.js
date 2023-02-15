@@ -1110,7 +1110,6 @@
     } else if (!props.isShown) {
       svg.style.visibility = 'hidden';
     }
-
     // todo 修改 line 放入的位置
     if (props.fixed && props.fixed.id) {
       document.getElementById(props.fixed.id).appendChild(svg);
@@ -3364,8 +3363,8 @@
     var props = {
       // Initialize properties as array.
       fixed: {
-        x: options.top || xy,
-        y: options.left || xy,
+        x: options.left || xy,
+        y: options.top || xy,
         id: options.fixed || null,
       },
       options: {
@@ -3530,7 +3529,7 @@
   })();
 
   LeaderLine.prototype.setOptions = function(newOptions) {
-    console.log("setOptions---", insProps);
+    // console.log("setOptions---", insProps);
     setOptions(insProps[this._id], newOptions);
     return this;
   };
